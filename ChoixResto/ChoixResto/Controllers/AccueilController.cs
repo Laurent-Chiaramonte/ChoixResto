@@ -11,10 +11,10 @@ namespace ChoixResto.Controllers
     public class AccueilController : Controller
     {
         // GET: Accueil
-        [ActionName("Index")]
-        public ActionResult LeNomQueJeVeux()
+        public ActionResult Index()
         {
             return View();
         }
+        
     }
 }
