@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
     <link type="text/css" href="~/Content/Site.css" rel="stylesheet" />
-    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Content/Scripts/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="~/Scripts/jquery.validate-vsdoc.js"></script>
     <script type="text/javascript" src="~/Scripts/jquery.validate.unobtrusive.js"></script>
 
@@ -28,6 +28,18 @@
                 options.rules["verifListe"] = options.params;
                 options.messages["verifListe"] = options.message;
             });
+    </script>
+    <script type="text/javascript">
+    jQuery.validator.addMethod("verifListe", function (value, element, params) {
+        var nombreCoche = $('input:checked[data-val-verifListe]').length;
+        return nombreCoche != 0;
+    });
+
+    jQuery.validator.unobtrusive.adapters.add
+        ("verifListe", function (options) {
+            options.rules["verifListe"] = options.params;
+            options.messages["verifListe"] = options.message;
+        });
     </script>
 </head>
 <body>
